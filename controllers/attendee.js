@@ -10,6 +10,9 @@ exports.getAttendeeByID = (id) => {
             return attendees[i]
         }
     }
+
+    // if no attendee was found
+    return null
 }
 
 exports.addNewAttendee = (attendee) => {

@@ -10,6 +10,9 @@ exports.getSpeakerByID = (id) => {
             return speakers[i]
         }
     }
+
+    // if no speaker was found
+    return null
 }
 
 exports.addNewSpeaker = (speaker) => {

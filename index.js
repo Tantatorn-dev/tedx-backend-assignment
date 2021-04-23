@@ -18,7 +18,15 @@ app.get('/attendees', (req, res) => {
 })
 
 app.get('/attendee/:id', (req, res) => {
-    res.json(getAttendeeByID(req.params.id))
+    const attendee = getAttendeeByID(req.params.id)
+    if (attendee != null) {
+        res.json(attendee)
+    } else {
+        res.status(404)
+        res.json({
+            'message': 'attendee not found'
+        })
+    }
 })
 
 app.get('/speakers', (req, res) => {
@@ -26,7 +34,15 @@ app.get('/speakers', (req, res) => {
 })
 
 app.get('/speaker/:id', (req, res) => {
-    res.json(getSpeakerByID(req.params.id))
+    const speaker = getSpeakerByID(req.params.id)
+    if (speaker != null) {
+        res.json(speaker)
+    } else {
+        res.status(404)
+        res.json({
+            'message': 'speaker not found'
+        })
+    }
 })
 
 app.post('/attendee', (req, res) => {
