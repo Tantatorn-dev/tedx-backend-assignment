@@ -4,6 +4,14 @@ exports.getAllSpeakers = () => {
     return speakers
 }
 
+exports.getSpeakerByID = (id) => {
+    for(let i=0;i<speakers.length;i++){
+        if (id == speakers[i].id.toString()) {
+            return speakers[i]
+        }
+    }
+}
+
 exports.addNewSpeaker = (speaker) => {
     speaker.id = (speakers.length + 1).toString()
     speakers.push({
