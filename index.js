@@ -1,6 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const { getAllAttendees, addNewAttendee } = require('./controllers/attendee')
+const { getAllAttendees, addNewAttendee, getAttendeeByID } = require('./controllers/attendee')
 const { getAllSpeakers, addNewSpeaker } = require('./controllers/speaker')
 
 const app = express()
@@ -15,6 +15,10 @@ app.get('/', (req, res) => {
 
 app.get('/attendees', (req, res) => {
     res.json(getAllAttendees())
+})
+
+app.get('/attendee/:id', (req, res) => {
+    res.json(getAttendeeByID(req.params.id))
 })
 
 app.get('/speakers', (req, res) => {
