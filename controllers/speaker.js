@@ -1,6 +1,22 @@
 const { speakers } = require('../models/speaker')
+const _ = require('lodash')
 
-exports.getAllSpeakers = () => {
+exports.getAllSpeakers = (queryParams) => {
+    if (queryParams != null) {
+
+        // fields query
+        let fields = queryParams.fields
+        if (fields != null) {
+            fields = fields.split(',')
+        }
+
+        if (fields != null) {
+            let partialSpeakers = speakers.map(item => {
+                return _.pick(item, fields)
+            })
+            return partialSpeakers
+        }
+    }
     return speakers
 }
 

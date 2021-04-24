@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/attendees', (req, res) => {
-    res.json(getAllAttendees())
+    res.json(getAllAttendees(req.query))
 })
 
 app.get('/attendee/:id', (req, res) => {
@@ -30,7 +30,7 @@ app.get('/attendee/:id', (req, res) => {
 })
 
 app.get('/speakers', (req, res) => {
-    res.json(getAllSpeakers())
+    res.json(getAllSpeakers(req.query))
 })
 
 app.get('/speaker/:id', (req, res) => {
