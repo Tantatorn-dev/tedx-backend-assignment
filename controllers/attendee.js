@@ -1,23 +1,8 @@
 const { attendees } = require('../models/attendee')
-const _ = require('lodash')
+const { queryObjects } = require('../util/util')
 
 exports.getAllAttendees = (queryParams) => {
-    if (queryParams != null) {
-
-        // fields query
-        let fields = queryParams.fields
-        if (fields != null) {
-            fields = fields.split(',')
-        }
-
-        if (fields != null) {
-            let partialAttendees = attendees.map(item => {
-                return _.pick(item, fields)
-            })
-            return partialAttendees
-        }
-    }
-    return attendees
+    return queryObjects(attendees, queryParams.fields)
 }
 
 exports.getAttendeeByID = (id) => {
