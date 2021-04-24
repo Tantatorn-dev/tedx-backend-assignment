@@ -1,6 +1,18 @@
 const _ = require('lodash')
 
-exports.queryObjects = (objArray, fields) => {
+exports.queryObjects = (objArray, queryParams) => {
+    let fields = queryParams.fields
+    let sortByAsc = queryParams.sortByAsc
+    let sortByDesc = queryParams.sortByDesc
+
+    if (sortByAsc != null) {
+        objArray = _.sortBy(objArray, sortByAsc)
+    }
+
+    if (sortByDesc != null) {
+        objArray = _.sortBy(objArray, sortByDesc).reverse()
+    }
+
     if (fields != null) {
 
         if (fields != null) {
@@ -16,4 +28,8 @@ exports.queryObjects = (objArray, fields) => {
     }
 
     return objArray
+}
+
+const sortObjArray = (objArray, field) => {
+
 }

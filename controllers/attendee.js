@@ -2,7 +2,7 @@ const { attendees } = require('../models/attendee')
 const { queryObjects } = require('../util/util')
 
 exports.getAllAttendees = (queryParams) => {
-    return queryObjects(attendees, queryParams.fields)
+    return queryObjects(attendees, queryParams)
 }
 
 exports.getAttendeeByID = (id) => {

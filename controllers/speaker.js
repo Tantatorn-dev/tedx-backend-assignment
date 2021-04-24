@@ -2,11 +2,11 @@ const { speakers } = require('../models/speaker')
 const { queryObjects } = require('../util/util')
 
 exports.getAllSpeakers = (queryParams) => {
-    return  queryObjects(speakers, queryParams.fields)
+    return queryObjects(speakers, queryParams)
 }
 
 exports.getSpeakerByID = (id) => {
-    for(let i=0;i<speakers.length;i++){
+    for (let i = 0; i < speakers.length; i++) {
         if (id == speakers[i].id.toString()) {
             return speakers[i]
         }
