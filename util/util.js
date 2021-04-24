@@ -29,7 +29,3 @@ exports.queryObjects = (objArray, queryParams) => {
 
     return objArray
 }
-
-const sortObjArray = (objArray, field) => {
-
-}
