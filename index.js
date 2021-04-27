@@ -7,7 +7,7 @@ const app = express()
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 
-const PORT = 3000
+const PORT = 8080
 
 app.get('/', (req, res) => {
     res.send('Hello TEDx Chareonkrung')
